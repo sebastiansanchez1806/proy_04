@@ -1,26 +1,41 @@
-//Referencia el modulo funciones a traves de la constante funciones
+//Requiere el paquete colors
+require('colors');
 
-require("colors");
+//Requiere al archivo math
+const math = require('./node_modules/math.js')
 
-//console.log(functions);
-process.stdout.write("Ejercicio\n\n");
+//Definimos una funcion flecha asincronica
+const main = async () => {
 
-let nombreAprendiz = 'Johan Estiven';
-let apellidoAprendiz = 'Vergara Urrego';
+    //Manda imprimir un mensaje en la consola
+    console.log('hola SENA CBA\n'.magenta);
 
-let nombreCompletoAprendiz = nombreAprendiz[0].toUpperCase()+
-nombreAprendiz.substring(1).toLowerCase() + " " +
-apellidoAprendiz.substring(0).toUpperCase();
+    //Define una constante llamada numeros y le da unos valores numericos en un arreglo
+    const numeros = [1, 2, 400, 741, 1000, 2341, 2679];
+    /*Se utiliza for para repetir un conjunto de instrucciones un número
+     específico de veces o para recorrer elementos de una colección, como un arreglo*/
+    for (const numero of numeros) {
+        const invertidoComoNumero = math.invertirNumero(numero);
+        const invertidoComoCadena = math.invertirNumeroComoCadena(numero);
+        //Manda a imprimir el mensaje en la consola
+        console.log("*********El numero '%s' es '%s' invertido como numero, y '%s' como cadena************".blue,
+                    numero, invertidoComoNumero, invertidoComoCadena);
+    }
 
-console.log(nombreCompletoAprendiz);
+    //Define una constante llamada textos y le da unos valores string en un arreglo
+    const textos = ['Hola Johan', 'Cedula 1789235', 'Ingeniero de Software'];
+    for(const texto of textos) {
+        const textoInvertido = math.invertirTexto(texto);
+        console.log("*********El texto '%s' se invierte como '%s'*********".yellow, texto, textoInvertido);
+    }
 
-let i = nombreCompletoAprendiz.length;
-let y=1;
-while(i > 0){
-    console.log(i +"    "+ nombreCompletoAprendiz.substring(0,i));
-    i--;
-    y++;
+    //Define una constante llamada datos y le da unos valores string y numeric en un arreglo
+    const datos = [93452618, 'ADSO 2798618', [2798618, 'ADSO']]
+    for(let dato of datos){
+        const datoConvertido = math.conversionDatos(dato);
+        console.log(`*********El resultado de conversion es: ${datoConvertido}**********`.green);
+    }
 }
-/*for (let index = 0; index < array.length; index++){
-    const element = array[index];
-}*/
+
+//Llama a toda la funcion flecha
+main();
