@@ -2,7 +2,7 @@
 require('colors');
 
 //Requiere al archivo math
-const math = require('./node_modules/math.js')
+const math = require('./modules/math.js')
 
 //Definimos una funcion flecha asincronica
 const main = async () => {
@@ -18,22 +18,22 @@ const main = async () => {
         const invertidoComoNumero = math.invertirNumero(numero);
         const invertidoComoCadena = math.invertirNumeroComoCadena(numero);
         //Manda a imprimir el mensaje en la consola
-        console.log("*********El numero '%s' es '%s' invertido como numero, y '%s' como cadena************".blue,
+        console.log("*********El numero '%s' es '%s' invertido como numero, y '%s' como cadena************".yellow,
                     numero, invertidoComoNumero, invertidoComoCadena);
     }
 
     //Define una constante llamada textos y le da unos valores string en un arreglo
-    const textos = ['Hola Johan', 'Cedula 1789235', 'Ingeniero de Software'];
+    const textos = ['Hola sebastian', 'Cedula 1203030', 'Ingeniero de Software'];
     for(const texto of textos) {
         const textoInvertido = math.invertirTexto(texto);
-        console.log("*********El texto '%s' se invierte como '%s'*********".yellow, texto, textoInvertido);
+        console.log("*********El texto '%s' se invierte como '%s'*********".blue, texto, textoInvertido);
     }
 
     //Define una constante llamada datos y le da unos valores string y numeric en un arreglo
     const datos = [93452618, 'ADSO 2798618', [2798618, 'ADSO']]
     for(let dato of datos){
         const datoConvertido = math.conversionDatos(dato);
-        console.log(`*********El resultado de conversion es: ${datoConvertido}**********`.green);
+        console.log(`*********El resultado de conversion es: ${datoConvertido}**********`.blue);
     }
 }
 
